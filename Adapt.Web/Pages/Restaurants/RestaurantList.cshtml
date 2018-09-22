@@ -1,0 +1,97 @@
+﻿@page
+@model Adapt.Web.Pages.Restaurants.RestaurantListModel
+@{
+    ViewData["Title"] = "RestaurantList";
+}
+
+<h2>Restaurants</h2>
+
+<form method="POST">
+    <input type="hidden" name="currentPostalCode" />
+    <table style="margin-top:40px">
+        <tr>
+            <td>Postal Code: <input type="text" name="postalCode" /></td>
+            <td>
+                <button type="submit" asp-page-handler="RestaurantsByPostalCode">Search</button>
+            </td>
+            <td>
+                <button id="btnUseCurrentLocation" type="submit" asp-page-handler="RestaurantsByCurrentPostalCode">Use my current location</button>
+            </td>
+            <td>
+                <button type="submit" asp-page-handler="AllRestaurants">Show All</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<table class="table" style="margin-top:40px">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].RestaurantLogoName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].RestaurantName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].BranchName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].BranchStreetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].BranchStreetNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].BranchSuburb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].BranchPostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].OpeningTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].ClosingTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Restaurant)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/images/" + item.RestaurantLogoName)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RestaurantName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchStreetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchStreetNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchSuburb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchPostalCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpeningTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClosingTime)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="restaurantMap" style="display:none"></div>
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+
+
