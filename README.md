@@ -10,7 +10,7 @@ To Run:
 
 - Build the solution and wait for all packages to download.
 
-- Run the project from Visual Studio or publish to a desired environment
+- Run the project from Visual Studio or publish to a desired environment.
 
 Note: The project will take a bit longer on initial load as it will create and populate the database.
 
