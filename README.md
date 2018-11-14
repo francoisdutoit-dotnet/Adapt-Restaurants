@@ -22,7 +22,10 @@ an issue with EF Core where we can't use "Include Filters"
  ```
  .Include(t => t.RestuarantTime.Any(d=> d.Day == DateTime.Today.DayOfWeek))  
  ```
- For more detail see the [issue on github](https://github.com/zzzprojects/EntityFramework-Plus/issues/156).  
+ For more detail see the [issue on github](https://github.com/zzzprojects/EntityFramework-Plus/issues/156).
+
+
+sdfsdfsdfsdf
  
  
 
